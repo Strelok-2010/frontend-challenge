@@ -9,9 +9,8 @@ let objLike2 = {};
 const buttonNext = document.querySelector('.buttonLike__next');
 const buttonLike = document.querySelector('.buttonLike__like');
 const buttonList = document.querySelector('.buttonList');
-let goodsTitle = document.querySelectorAll('.goods-title');
 const listLike = document.querySelector('.listLike');
-
+let goodsTitle = document.querySelectorAll('.goods-title');
 
 
 function service(url, callback) {
@@ -101,6 +100,7 @@ buttonLike.addEventListener('click', e => {
 	}).join('');
 	slider = slider + '				<a class="prev" onclick="minusSlide()">&#10094;</a>	<a class="next" onclick="plusSlide()">&#10095;</a>'
 	document.querySelector('.slider').innerHTML = slider;
+
 	showSlides(slideIndex);
 }, false);
 
@@ -127,10 +127,14 @@ document.addEventListener('click', s => {
 				let ee = "item ";
 				let ww = String(ee + qq);
 				let blockSli = document.getElementsByClassName(ww);
-
-
-				blockSli[0].remove();
-				block.remove();
+				if (blockSli[0]) {
+					blockSli[0].remove();
+					if (block) {
+						block.remove();
+					}
+				}
+				//blockSli[0].remove();
+				//block.remove();
 				objLike1.forEach(item => {
 					if (item.id === qq) {
 
@@ -207,7 +211,7 @@ function showSlides(n) {
 		dots[i].className = dots[i].className.replace(" active", "");
 	}
 	slides[slideIndex - 1].style.display = "block";
-	//dots[slideIndex - 1].className += " active";
+	goodsTitle = document.querySelectorAll('.goods-title');
 }
 
 

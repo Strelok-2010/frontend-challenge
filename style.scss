@@ -103,6 +103,8 @@ header {
 //сдайдер
 /* Собственно сам слайдер */
 .slider {
+	width: 74vw;
+	object-fit: cover;
 	max-width: 90%;
 	position: relative;
 	margin: auto;
